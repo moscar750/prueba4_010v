@@ -1,0 +1,33 @@
+{% extends 'core/baseTemplate.html' %}
+
+{% load static %}
+
+{% block titulo %}
+<link rel="icon" href="{% static 'core/img/favicon.ico' %}" type="image/x-icon">
+<script src="{% static 'core/js/galeria-imagenes.js' %}"></script>
+<script src="{% static 'core/js/seccion-gatos.js' %}"></script>
+{% endblock %}
+
+{% block contenido %}
+<div class="row">
+  <div class="col-12">
+    <section>
+      <h2>
+        Gatos
+      </h2>
+      <div class="container-fluid">
+        <div class="">
+          Raza:
+        </div>
+        <select name="combo_pulento" id="combo_pulento" onchange="buscar()" class="w-100">
+          <option value="empty" selected>-- Seleccione una raza --</option>
+          <option value="all">Cualquiera</option>
+        </select>
+      </div>
+      <table  id="lista-gatos" class="table text-center">
+
+      </table>
+    </section>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'core/baseTemplate.html' %}
+
+{% load static %}
+
+{% block titulo %}
+<title>nada</title>
+<link rel="icon" href="{% static 'core/img/favicon.ico' %}" type="image/x-icon">
+<link rel="stylesheet" href="{% static 'core/css/estilo.css' %}">
+<script src="{% static 'core/js/loc.js' %}"></script>
+{% endblock %}
+
+{% block contenido %}
+<div class="row">
+  <div class="col-6-md text-center">
+    <table id="tiempo" class="table table-dark font-weight-bolder" style="border-radius: 20px;">
+      <tr>
+        <td style="border-top:none;" colspan="3">
+          <span id="tiempo-lugar"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="my-auto">
+          <img id="tiempo-icono" src="" alt="Ícono del tiempo" title="tiempo" />
+        </td>
+        <td class="my-auto">
+          <span class="display-4" id="tiempo-temperatura"></span>
+        </td>
+        <td>
+          Viento: <span id="tiempo-viento"></span><br/>
+          Precipitaciones: <span id="tiempo-precipitaciones"></span><br/>
+          Presión: <span id="tiempo-presion"></span><br/>
+          Humedad: <span id="tiempo-humedad"></span><br/>
+        </td>
+      </tr>
+    </table>
+    <div class="text-center">
+      <div id="ajax-loader" class="spinner-border spinner-border-md"></div>
+    </div>
+  </div>
+  <div class="col-6-md text-center">
+    <section>
+      <h2>
+        <a href="seccion-perros.html" title="Perros">
+          <img src="{% static 'core/img/seccion-perros.jpg' %}" title="Perros" alt="Perros" class="rounded-circle img-thumbnail" width="250"  />
+        </a>
+        <a href="seccion-gatos.html" title="Gatos">
+          <img src="{% static 'core/img/seccion-gatos.jpeg' %}" title="Gatos" alt="Gatos"  class="rounded-circle img-thumbnail" width="250"/>
+        </a>
+      </h2>
+    </section>
+  </div>
+</div>
+
+{% endblock %}

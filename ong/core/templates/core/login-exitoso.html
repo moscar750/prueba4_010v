@@ -1,0 +1,24 @@
+{% extends 'core/baseTemplate.html' %}
+
+{% load static %}
+
+{% block titulo %}
+<link rel="stylesheet" href="{% static 'core/css/estilo.css' %}">
+<link rel="stylesheet" href="{% static 'core/css/validaciones.css' %}" >
+<link rel="icon" href="{% static 'core/img/favicon.ico' %}" type="image/x-icon">
+<script src="{% static 'core/js/validador.js' %}"></script>
+
+{% endblock %}
+
+{% block contenido %}
+<div class="row">
+  <div class="col-12 text-center">
+    <h2>Login exitoso</h2>
+    <br>
+    <div class="w-100 text-center">
+      <p>pero que login mas bello </p>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

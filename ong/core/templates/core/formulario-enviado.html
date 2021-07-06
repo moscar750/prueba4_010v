@@ -1,0 +1,20 @@
+{% extends 'core/baseTemplate.html' %}
+
+{% load static %}
+
+{% block titulo %}
+<link rel="icon" href="{% static 'core/img/favicon.ico' %}" type="image/x-icon">
+<link rel="stylesheet" href="{% static 'core/css/validaciones.css' %}" >
+<script src="{% static 'core/js/formulario-contacto.js' %}"></script>
+
+{% endblock %}
+
+{% block contenido %}
+<section>
+  <h2>Contacto</h2>
+
+  <div class="alert alert-success" role="alert">
+    Formulario enviado exitosamente
+  </div>
+</section>
+{% endblock %}
