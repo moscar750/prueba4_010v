@@ -1,0 +1,71 @@
+{% extends 'core/baseTemplate.html' %}
+
+{% load static %}
+
+{% block titulo %}
+<link rel="icon" href="{% static 'core/img/favicon.ico' %}" type="image/x-icon">
+<link rel="stylesheet" href="{% static 'core/css/validaciones.css' %}" >
+<script src="{% static 'core/js/formulario-contacto.js' %}"></script>
+{% endblock %}
+
+{% block contenido %}
+
+
+<div class="col-12">
+  <h1>Listado de proveedores</h1>
+</div>
+<div class="col-12">
+  <table class="col-12" border="1">
+    <tr>
+      <td>RUT</td>
+      <td>Razón Social</td>
+      <td>Descripción</td>
+      <td>teléfono</td>
+      <td>e-mail</td>
+      <td>servicio</td>
+    </tr>
+    {%  for pro in proveedores %}
+    <tr>
+      <td>{{pro.rut}}</td>
+      <td>{{pro.razon_social}}</td>
+      <td>{{pro.descripcion}}</td>
+      <td>{{pro.telefono}}</td>
+      <td>{{pro.mail}}</td>
+      <td>{{pro.fk_servicio}}</td>
+      <td class="text-center"><a href="{% url 'editar-proveedor' pro.rut %}" class="btn btn-warning" >Modificar</a></td>
+      <td class="text-center"><a onclick="mensajeEliminar({{ pro.rut }})" href="#" class="btn btn-danger" >Eliminar</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+  <a href="{% url 'form-proveedor' %}" class="btn btn-primary" >Agregar Proveedor</a>
+</div>
+
+<script type="text/javascript">
+  function mensajeEliminar(id){
+    Swal.fire({
+      "title":"¿Estas Seguro?",
+      "text":"Esta accion es definitiva",
+      "icon":"question",
+      "showCancelButton":true
+    })
+    .then(function(result){
+      if(result.isConfirmed){
+        window.location.href = "eliminar/"+id
+      }
+    })
+  }
+</script>
+
+{% if messages %}
+  {% for m in messages %}
+  <script>
+    Swal.fire({
+      "title":"Felicitaciones",
+      "text":"{{m}}",
+      "icon":"success"
+    })
+  </script>
+  {% endfor %}
+{% endif %}
+
+{% endblock %}

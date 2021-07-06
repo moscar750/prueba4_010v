@@ -1,0 +1,8 @@
+#tiempo span {
+    font-weight: normal;
+}
+
+.alerta{
+  position: absolute;
+  z-index: 1;
+}

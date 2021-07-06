@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  {% load static %}
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  {% block titulo %}<title>ONG Ayuda a un peludo</title>{% endblock %}
+</head>
+<body>
+  <div class="container bg-light d-flex flex-column sticky-footer-wrapper min-vh-100">
+    <header class="jumbotron">
+      <h1 class="text-center">
+        <img src="{% static 'core/img/logo.png' %}" class="rounded-circle" alt="logo"/>
+        <span class="text-nowrap">ONG Ayuda a un Peludo</span>
+      </h1>
+      <p class="text-justify">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam repellat earum fuga? Nihil adipisci in ut labore nobis, earum eos possimus ex eum eveniet delectus suscipit mollitia perspiciatis, repellat vitae!
+      </p>
+    </header>
+    <nav class="navbar navbar-expand-md bg-light">
+
+      <a class="navbar-brand" href="#">
+        <img src="{% static 'core/img/logo.png' %}" class="rounded-circle" width="80" alt="Logo" />
+      </a>
+
+      <!-- Links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Inicio</a>
+        </li>
+
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            Mascotas
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/seccion-perros">Perros</a>
+            <a class="dropdown-item" href="/seccion-gatos">Gatos</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contacto">Contacto</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/proveedor">proveedor</a>
+        </li>
+      </ul>
+    </nav>
+    <main class="flex-fill">
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      {% block contenido %}
+      {% endblock %}
+
+    </main>
+    <footer>
+      <div class="row bg-dark">
+        <div class="col-12 text-center text-warning">
+          Programación Web<br/>
+          Instituto Profesional Duoc UC
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

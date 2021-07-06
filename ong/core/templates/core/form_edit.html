@@ -1,0 +1,47 @@
+{% extends 'core/baseTemplate.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block titulo %}
+<link rel="icon" href="{% static 'core/img/favicon.ico' %}" type="image/x-icon">
+<link rel="stylesheet" href="{% static 'core/css/validaciones.css' %}" >
+<script src="{% static 'core/js/formulario-contacto.js' %}"></script>
+{% endblock %}
+
+{% block contenido %}
+<div class="d-flex flex-column align-items-center">
+  <div class="row">
+    <h1>Proveedor</h1>
+    {% if form.erros %}
+    <div class="alert alert-danger" id="error" role="alert">
+      Error en los datos ingresados
+    </div>
+    {% endif %}
+  </div>
+  <div class="col-8">
+    <form id="formulario" action="{% url 'actualizar-proveedor' proveedor.rut %}" method="post">
+      {% csrf_token %}
+      {% if mensaje %}
+      <div class="alert alert-success" id="success" role="alert">
+        Proveedor actualizado
+      </div>
+      {% endif %}
+      <div class="form-group">
+        {{ form|crispy }}
+
+      </div>
+      <div class="d-flex flex-row justify-content-arround">
+        <div class="col-6">
+          <input type="submit" class="btn btn-success" id="enviar" value="Guardar">
+          <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar">
+
+        </div>
+        <div class="col-6 d-flex justify-content-end">
+          <a href="{% url 'proveedor' %}" class="btn btn-warning" >Cancelar</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

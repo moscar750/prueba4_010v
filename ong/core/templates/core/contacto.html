@@ -1,0 +1,80 @@
+{% extends 'core/baseTemplate.html' %}
+
+{% load static %}
+
+{% block titulo %}
+<link rel="icon" href="{% static 'core/img/favicon.ico' %}" type="image/x-icon">
+<link rel="stylesheet" href="{% static 'core/css/validaciones.css' %}" >
+<script src="{% static 'core/js/formulario-contacto.js' %}"></script>
+{% endblock %}
+
+{% block contenido %}
+<section>
+  <h2>Contacto</h2>
+  <div class="form-group">
+    <form id="formulario-contacto" name="formularioContacto" action="formulario-enviado.html" method="POST" >
+
+      <div class="row">
+        <div class="col-md-12">
+          <label for="fieldTipoContacto">
+            Tipo:<span class="alert alert-danger" role="alert"></span>
+          </label>
+          <select id="fieldTipoContacto" name="tipoContacto" class="form-control">
+            <option value="" >-- seleccione un tipo --</option>
+            <option value="felicitaciones">Felicitaciones</option>
+            <option value="sugerencia">Sugerencia</option>
+            <option value="reclamo">Reclamo</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label for="fieldNombre">
+            Nombre:<span class="alert alert-danger" role="alert"></span>
+          </label>
+          <input id="fieldNombre" class="form-control" type="text" name="nombre" />
+        </div>
+        <div class="col-md-6">
+          <label for="fieldEmail">
+            Email:
+            <span class="alert alert-danger" role="alert"></span>
+          </label>
+          <input id="fieldEmail" class="form-control" type="email" name="email" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label for="fieldFechaNacimiento">
+            Fecha Nacimiento:
+            <span class="alert alert-danger" role="alert"></span>
+          </label>
+          <input id="fieldFechaNacimiento" class="form-control" type="date" name="fecha_nacimiento" />
+        </div>
+        <div class="col-md-6">
+          <label for="fieldRut">
+            Rut:
+            <span class="alert alert-danger" role="alert"></span>
+          </label>
+          <input id="fieldRut" class="form-control" type="text" name="rut" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <label for="fieldComentario">
+            Comentario:
+            <span class="alert alert-danger" role="alert"></span>
+          </label>
+          <textarea id="fieldComentario" class="form-control" name="comentario"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-right">
+          <button type="submit" class="btn btn-success" name="submit">Enviar</button>
+          <button type="reset" class="btn btn-info" name="reset">Limpiar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+{% endblock %}
