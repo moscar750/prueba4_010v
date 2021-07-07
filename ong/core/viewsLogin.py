@@ -18,7 +18,7 @@ from .models import Proveedor
 from .serializers import ProveedorSerilizer
 
 
-class PersonaList(generics.ListCreateAPIView):
+class ProveedorList(generics.ListCreateAPIView):
     queryset = Proveedor.objects.all()
     serializer_class = ProveedorSerilizer
     permission_classes = (IsAuthenticated,)
